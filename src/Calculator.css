@@ -13,7 +13,7 @@
     padding-bottom: 1rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-color: azure;
+    background-color: #f0ffff;
 }
 .innerDiv {
     padding: 0.5rem 1rem;
@@ -23,6 +23,8 @@
     font-size: 80%;
     text-align: left;
     padding-left: 1rem;
+    max-width: fit-content;
+    color: #808080;
 }
 #mathStrLabel {
     vertical-align: top;
@@ -30,6 +32,7 @@
 #mathStrButton {
     margin-bottom: 0.5rem;
     line-height: 1.5rem;
+    font-size: medium;
 }
 #resultElem {
     font-weight: 800;
@@ -37,6 +40,6 @@
     margin: 0.5em;
 }
 #errorPanelDiv {
-    color: red;
+    color: #ff0000;
     text-align: left;
 }

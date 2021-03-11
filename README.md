@@ -1,6 +1,6 @@
 # vidmob-exercise
 This repository has code written for a take home assessment at vidmob. Follow the below steps to setup the project in your local.
-## [Click to see the Calculator Page] (https://sushanthmali.github.io/vidmob-exercise/)
+## [Click to see the Calculator Page](https://sushanthmali.github.io/vidmob-exercise/)
 The code is available in 'src' folder.
 ### Clone the project
 Download or clone this project by running this command from terminal

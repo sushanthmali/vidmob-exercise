@@ -11,15 +11,19 @@ class Calculator extends Component {
             errorMessage : ''
         };
         this.calculate = this.calculate.bind(this);
-        this.changeMathStr = this.changeMathStr.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
     
+    /**
+     * A button click event, which calculates the mathematical expression
+     * @param {*} event event
+     */
     calculate = (event) => {
         event.preventDefault();
         var result = calculate(this.state.mathStr);
         if (result.successFlag) {
             this.setState({
-                result : result.value,
+                result : 'Result : ' + result.value,
                 errorMessage : ''
             })
         } else {
@@ -29,10 +33,15 @@ class Calculator extends Component {
             })
         }
     }
-    changeMathStr = (event) => {
+    
+    /**
+     * Handles Input change event
+     * @param {*} event 
+     */
+    handleInputChange = (event) => {
         this.setState({
             mathStr : event.target.value,
-            result : 0
+            result : ''
         })
     }
     
@@ -54,15 +63,15 @@ class Calculator extends Component {
                         <h1 id="calcTitle">Calculator - VidMob Exercise</h1>
                     </header>
                     <div>
-                        <p className="calcDesrciption">Enter math string and click on Calculate button. Ex: "1 + 2", "(4-2)*3.5" etc </p>
+                        <p className="calcDesrciption">Enter a valid math problem and click on Calculate button to see the result. Currently '+', '-', '*', '/', '%' operations including parentheses are supported. For example: "1 + 2", "(4-2)*3.52" etc. </p>
                         {ErrorPanel}
                         <div className="innerDiv">
-                            <label id="mathStrLabel">Enter Problem : </label>
-                            <textarea onChange={this.changeMathStr} value={this.state.mathStr} rows="5" cols="45"/>
+                            <label id="mathStrLabel">Enter a Math Problem : </label>
+                            <textarea id="mathStrInput" onChange={this.handleInputChange} value={this.state.mathStr} rows="5" cols="45"/>
                         </div>
                         <button id="mathStrButton" onClick={this.calculate}>Calculate</button>
                         <div>
-                            <p id="resultElem">Result is : {this.state.result}</p>
+                            <p id="resultElem">{this.state.result}</p>
                         </div>
                     </div>
                 </form>

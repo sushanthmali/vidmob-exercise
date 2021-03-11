@@ -1,11 +1,28 @@
+/**
+ * Calculates the Mathematical expression as String
+ * @param {String} input math expression in String format
+ * @returns result if the syntax is correct, error message in case of an error.
+ */
 export function calculate(input) {
-    var allowedCharacters = /^[\d+*\-%/(). ]+$/g
-    if (!validateFormat(allowedCharacters, input)) {
-        return {'successFlag' : false, 'message': 'Invalid Input.'}
+    if (!input || !input.trim()) {
+        return {'successFlag' : false, 'message': 'No Math string found in input area.'}
     }
-    return evaluate(input.replaceAll(' ', ''))
+    var allowedCharacters = /^[\d+*\-%/().\s]+$/g
+    if (!validateFormat(allowedCharacters, input)) {
+        return {'successFlag' : false, 'message': 'Invalid Input entered in the text field.'}
+    }
+    if (input.startsWith('+') ||input.startsWith('-')) {
+        input = '0'+input
+    }
+    return evaluate(input.replace(/\s/g, ''))
 }
 
+/**
+ * Evaluates the mathematical expression by calculating the 
+ * inner expressions in parenthesis one at a time
+ * @param {String} textExp Test Expression
+ * @returns result if the syntax is correct, error message in case of an error.
+ */
 function evaluate (textExp) {
     var innerExpCheck = textExp.indexOf('(')
     if (innerExpCheck === -1) {
@@ -24,7 +41,9 @@ function evaluate (textExp) {
         var innerExp = textExp.substring(priorOpenExp+1, firstCloseExp)
         var result = evaluate(innerExp);
         if (result.successFlag) {
-            textExp = textExp.replaceAll('('+innerExp+')', result.value)
+            const targetStr = ('('+innerExp+')').replace(/[-/*+.()]/g, '\\$&')
+            const regex = new RegExp(targetStr, 'g')
+            textExp = textExp.replace(regex, result.value)
             return evaluate(textExp)
         } else {
             return result;
@@ -32,10 +51,21 @@ function evaluate (textExp) {
     }
 }
 
+/**
+ * Validates Format of the string
+ * @param {String} regex Regular expression to be matched against
+ * @param {String} testString String to be tested
+ * @returns True if test string matched with the regular expression, otherwise false
+ */
 function validateFormat (regex, testString) {
     return regex.test(testString);
 }
 
+/**
+ * Calculates the result of a mathematical expression without parenthesis
+ * @param {String} simpleExp Simple mathematic expression with +, -, *, %, /
+ * @returns calculated result
+ */
 function calculateSimpleExpression (simpleExp) {
     if (simpleExp.substring(1).search(/[*/%+-]/) === -1) {
         return {'successFlag' : true, 'value': simpleExp}
@@ -84,16 +114,23 @@ function calculateSimpleExpression (simpleExp) {
     return calculateSimpleExpression(simpleExp)
 }
 
+/**
+ * Performs Basic Arithmetic Operations
+ * @param {String} operator (+, -, *, %, /) the operation needs to performed
+ * @param {Number} val1 Value 1
+ * @param {Number} val2 Value 2
+ * @returns result based on the operator choosen
+ */
 function performOperation (operator, val1, val2) {
     if (operator === '+') {
-        return Number(val1) + Number(val2)
+        return val1 + val2
     } else if (operator === '-') {
-        return Number(val1) - Number(val2)
+        return val1 - val2
     } else if (operator === '*') {
-        return Number(val1) * Number(val2)
+        return val1 * val2
     } else if (operator === '%') {
-        return Number(val1) % Number(val2)
+        return val1 % val2
     } else if (operator === '/') {
-        return Number(val1) / Number(val2)
+        return val1 / val2
     }
 }
