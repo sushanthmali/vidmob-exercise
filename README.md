@@ -1,6 +1,8 @@
 # vidmob-exercise
 ## About
-The application takes a math problem statement as an input string and evaluates the results and displays it. The implementation accepts addition(+), subtraction(-), multiplication(*), division(/) and modulus(%). Integers and floats are allowed. Also, Parentheses () are allowed in the string. validations are added for input field empty, invalid input (Using text etc.) and syntax error(Incomplete problem statement) scenarios
+The application takes a math problem statement as an input string and evaluates the results and displays it. The implementation accepts addition(+), subtraction(-), multiplication(*), division(/) and modulus(%). Integers and floats are allowed. Also, Parentheses () are allowed in the string. validations are added for input field empty, invalid input (Using text etc.) and syntax error(Incomplete problem statement) scenarios.
+
+User interface is designed using React JS and backend logic is implemented using javascript. Test cases are written using Jest and Enzyme. GitHub Pages are used to host the page from the repository.
 
 Note: I have inluded modulus accidentally and decided to implement it, even though it wasn't there in the requirements.
 
