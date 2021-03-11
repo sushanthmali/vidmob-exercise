@@ -62,7 +62,7 @@ class Calculator extends Component {
                         </div>
                         <button id="mathStrButton" onClick={this.calculate}>Calculate</button>
                         <div>
-                            <p>Result is : {this.state.result}</p>
+                            <p id="resultElem">Result is : {this.state.result}</p>
                         </div>
                     </div>
                 </form>

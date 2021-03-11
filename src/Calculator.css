@@ -5,14 +5,15 @@
 #calculatorForm {
     width: fit-content;
     margin: 0 auto;
-    border: 1px solid;
-    border-radius: 5px;
+    border: 1rem solid;
+    border-radius: 0.5rem;
 }
 #calcTitle {
-    border-bottom: 1px solid gray;
+    border-bottom: 0.2rem solid gray;
     padding-bottom: 1rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    background-color: azure;
 }
 .innerDiv {
     padding: 0.5rem 1rem;
@@ -29,6 +30,11 @@
 #mathStrButton {
     margin-bottom: 0.5rem;
     line-height: 1.5rem;
+}
+#resultElem {
+    font-weight: 800;
+    font-size: x-large;
+    margin: 0.5em;
 }
 #errorPanelDiv {
     color: red;
