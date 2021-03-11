@@ -1,5 +1,5 @@
 export function calculate(input) {
-    var allowedCharacters = /^[\d+*\-%/()\. ]+$/g
+    var allowedCharacters = /^[\d+*\-%/(). ]+$/g
     if (!validateFormat(allowedCharacters, input)) {
         return {'successFlag' : false, 'message': 'Invalid Input.'}
     }
@@ -37,7 +37,7 @@ function validateFormat (regex, testString) {
 }
 
 function calculateSimpleExpression (simpleExp) {
-    if (simpleExp.substring(1).search(/[*/%+\-]/) === -1) {
+    if (simpleExp.substring(1).search(/[*/%+-]/) === -1) {
         return {'successFlag' : true, 'value': simpleExp}
     }
     var op = -1
@@ -55,22 +55,22 @@ function calculateSimpleExpression (simpleExp) {
         }
     } else {
         op = simpleExp.search(/[*/%]/)
-        for (var i=op-1; i >=0;i--) {
-            if (simpleExp.charAt(i) === '+' || simpleExp.charAt(i) === '-') {
-                if (i == 0 || (simpleExp.charAt(i-1) === '+' || simpleExp.charAt(i-1) === '-')) {
-                    begin = i
+        for (var j=op-1; j >=0;j--) {
+            if (simpleExp.charAt(j) === '+' || simpleExp.charAt(j) === '-') {
+                if (j === 0 || (simpleExp.charAt(j-1) === '+' || simpleExp.charAt(j-1) === '-')) {
+                    begin = j
                 } else {
-                    begin = i+1
+                    begin = j+1
                 }
             break;
             }
         }
     }
     num1 = Number(simpleExp.substring(begin, op))
-    for (var i=op+2; i < simpleExp.length; i++) {
-        if (simpleExp.charAt(i) === '+' || simpleExp.charAt(i) === '-' || simpleExp.charAt(i) === '*'
-            || simpleExp.charAt(i) === '%' || simpleExp.charAt(i) === '/') {
-            end = i;
+    for (var k=op+2; k < simpleExp.length; k++) {
+        if (simpleExp.charAt(k) === '+' || simpleExp.charAt(k) === '-' || simpleExp.charAt(k) === '*'
+            || simpleExp.charAt(k) === '%' || simpleExp.charAt(k) === '/') {
+            end = k;
             break;
         }
     }
