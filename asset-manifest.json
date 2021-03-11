@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/vidmob-exercise/static/css/main.36cc9fff.chunk.css",
+    "main.js": "/vidmob-exercise/static/js/main.ed35e5af.chunk.js",
+    "main.js.map": "/vidmob-exercise/static/js/main.ed35e5af.chunk.js.map",
+    "runtime-main.js": "/vidmob-exercise/static/js/runtime-main.d3d5527c.js",
+    "runtime-main.js.map": "/vidmob-exercise/static/js/runtime-main.d3d5527c.js.map",
+    "static/js/2.be5427bf.chunk.js": "/vidmob-exercise/static/js/2.be5427bf.chunk.js",
+    "static/js/2.be5427bf.chunk.js.map": "/vidmob-exercise/static/js/2.be5427bf.chunk.js.map",
+    "index.html": "/vidmob-exercise/index.html",
+    "static/css/main.36cc9fff.chunk.css.map": "/vidmob-exercise/static/css/main.36cc9fff.chunk.css.map",
+    "static/js/2.be5427bf.chunk.js.LICENSE.txt": "/vidmob-exercise/static/js/2.be5427bf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d3d5527c.js",
+    "static/js/2.be5427bf.chunk.js",
+    "static/css/main.36cc9fff.chunk.css",
+    "static/js/main.ed35e5af.chunk.js"
+  ]
+}
