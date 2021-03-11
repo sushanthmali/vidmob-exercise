@@ -59,7 +59,7 @@ describe('Calculator - Testing Syntax Errors', () => {
 });
 
 describe('Calculator - Testing UI Rendered Results', () => {
-  test('', () => {
+  test('Calculator testing positive test scenarios', () => {
     verify('--12.5', '12.5')
     verify('-(-3.4)', '3.4')
     verify('40*100.5', '4020')
@@ -67,6 +67,8 @@ describe('Calculator - Testing UI Rendered Results', () => {
     verify('354.55+34.4*345', '12222.55')
     verify('354.55+34.4*345', '12222.55')
     verify('(-5+13)*(-5+13)+(-5*13)', '-1')
+    verify('(-5+13)*((-5+13)+(-5*13))', '-456')
+    verify('(-5+(13)*(-5+13)+(-5*13))', '34')
     verify('(-8)*(-5+13)+(-5*13)\n-(13*21)', '-402')
   });
 });
